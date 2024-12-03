@@ -1,0 +1,25 @@
+name: Build and Store
+
+on:
+  push:
+    branches:
+      - main  # The branch to monitor (default branch is 'main')
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        npm install
+        npm run build
+
+    - name: Save build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifact
+        path: ./build  # Replace './build' with the folder containing your build output
