@@ -1,37 +1,9 @@
-# name: Build and Store
-
-# on:
-#   push:
-#     branches:
-#       - main  # The branch to monitor (default branch is 'main')
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - name: Checkout code
-#       uses: actions/checkout@v3
-
-#     - name: Install dependencies
-#       run: |
-#         npm install
-#         npm run build
-
-#     - name: Save build artifact
-#       uses: actions/upload-artifact@v3
-#       with:
-#         name: build-artifact
-#         path: ./build  # Replace './build' with the folder containing your build output
-
-
-
 name: Build and Store
 
 on:
   push:
     branches:
-      - main  # The branch to monitor
+      - main  # The branch to monitor (default branch is 'main')
 
 jobs:
   build:
@@ -42,7 +14,6 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install dependencies
-      working-directory: ./RIYA_SPACE  # Set the correct working directory
       run: |
         npm install
         npm run build
@@ -51,4 +22,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: build-artifact
-        path: ./RIYA_SPACE/build  # Adjust path to match your build output
+        path: ./build  # Replace './build' with the folder containing your build output
