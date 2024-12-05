@@ -47,7 +47,7 @@ jobs:
 
     - name: Start app
       run: |
-        node app.js  
+        node app.js &
 
     # Optionally, save the artifact if needed
     - name: Save build artifact
