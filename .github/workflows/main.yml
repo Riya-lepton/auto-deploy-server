@@ -1,60 +1,60 @@
-# name: Build and Store
-
-# on:
-#   push:
-#     branches:
-#       - main  # The branch to monitor (default branch is 'main')
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - name: Checkout code
-#       uses: actions/checkout@v3
-
-#     - name: Install dependencies
-#       run: |
-#         npm install
-#         npm run build
-
-#     - name: Save build artifact
-#       uses: actions/upload-artifact@v3
-#       with:
-#         name: build-artifact
-#         path: ./build  # Replace './build' with the folder containing your build output
-
-
-
-name: Build and Deploy
+name: Build and Store
 
 on:
   push:
     branches:
-      - main  # Monitor the 'main' branch for changes
+      - main  # The branch to monitor (default branch is 'main')
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # Checkout your repository
+      uses: actions/checkout@v3
 
     - name: Install dependencies
       run: |
-        npm install  
+        npm install
+        npm run build
 
-    - name: Start app
-      run: |
-        node app.js &
-
-    # Optionally, save the artifact if needed
     - name: Save build artifact
       uses: actions/upload-artifact@v3
       with:
         name: build-artifact
-        path: ./  # You can adjust this if you want to store specific files as artifacts
+        path: ./build  # Replace './build' with the folder containing your build output
+
+
+
+# name: Build and Deploy
+
+# on:
+#   push:
+#     branches:
+#       - main  # Monitor the 'main' branch for changes
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v3  # Checkout your repository
+
+#     - name: Install dependencies
+#       run: |
+#         npm install  
+
+#     - name: Start app
+#       run: |
+#         node app.js &
+
+#     # Optionally, save the artifact if needed
+#     - name: Save build artifact
+#       uses: actions/upload-artifact@v3
+#       with:
+#         name: build-artifact
+#         path: ./  # You can adjust this if you want to store specific files as artifacts
 
     # # Notify your server for deployment (if applicable)
     # - name: Notify server for deployment
