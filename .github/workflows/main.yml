@@ -19,10 +19,11 @@ jobs:
         npm run build
 
     - name: Save build artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # Updated version to v4
       with:
         name: build-artifact
-        path: ./build  # Replace './build' with the folder containing your build output
+        path: ./build
+
 
 
 
