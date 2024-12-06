@@ -71,7 +71,7 @@ const app = express();
 const PORT = 8080;
 
 // Replace with your webhook secret
-const WEBHOOK_SECRET = 'secretpswd';
+const WEBHOOK_SECRET = 'githubwebhooksecret';
 
 // Parse raw body for signature verification
 app.use(bodyParser.raw({ type: 'application/json' }));
