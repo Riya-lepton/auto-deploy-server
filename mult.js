@@ -33,6 +33,7 @@ app.post("/single", upload.single("image"), (req, res , next) => {
   console.log(req.file);
   console.log(next ,"eretert");
   res.send("Single FIle upload success");
+  console.log("hello);
 });
 
 
