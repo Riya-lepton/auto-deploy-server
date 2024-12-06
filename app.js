@@ -26,7 +26,7 @@ if (req.body.ref && req.body.ref === 'refs/heads/main') {
     console.log('New code pushed. Deploying...');
 
     // Run deployment script
-    exec('/home/lepton/riya_space/deploy.sh', (err, stdout, stderr) => {
+    exec('./deploy.sh', (err, stdout, stderr) => {
       if (err) {
         console.error('Deployment failed:', stderr);
         return res.status(500).send('Deployment failed');
