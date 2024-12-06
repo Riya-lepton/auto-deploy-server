@@ -108,7 +108,7 @@ app.post('/webhook', verifySignature, (req, res) => {
 
   console.log('Webhook received:', event);
 
-  if (event.ref && event.ref === 'refs/heads/main') {
+  if (req.body.ref === 'refs/heads/main') {
     console.log('New code pushed. Deploying...');
 
     exec('/home/lepton/riya_space/deploy.sh', (err, stdout, stderr) => {
