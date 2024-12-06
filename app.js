@@ -70,13 +70,14 @@ const { exec } = require('child_process');
 const app = express();
 const PORT = 8080;
 
-// Replace with your webhook secret
-const WEBHOOK_SECRET = 'secretpswd';
+// Replace with your webhook secret and password
+const WEBHOOK_SECRET = 'secretpswd'; 
+const WEBHOOK_PASSWORD = 'password123'; // The expected password sent with the request
 
 // Parse raw body for signature verification
 app.use(bodyParser.raw({ type: 'application/json' }));
 
-// Verify GitHub webhook signature
+// Function to verify GitHub webhook signature
 function verifySignature(req, res, next) {
   const signature = req.headers['x-hub-signature-256'];
   if (!signature) {
@@ -94,7 +95,18 @@ function verifySignature(req, res, next) {
     return res.status(403).send('Invalid signature');
   }
 
-  next();
+  next();  // If the signature is valid, move to the next middleware
+}
+
+// Password verification middleware
+function verifyPassword(req, res, next) {
+  const password = req.body.password; // Assuming the password is sent in the body as `password`
+
+  if (!password || password !== WEBHOOK_PASSWORD) {
+    return res.status(403).send('Invalid password');
+  }
+
+  next();  // If the password matches, proceed with the request
 }
 
 // Test GET route
@@ -102,8 +114,8 @@ app.get('/', (req, res) => {
   res.send('Webhook Service is Running');
 });
 
-// Webhook endpoint with signature verification
-app.post('/webhook', verifySignature, (req, res) => {
+// Webhook POST route with both signature and password verification
+app.post('/webhook', verifySignature, verifyPassword, (req, res) => {
   const event = JSON.parse(req.body);
 
   console.log('Webhook received:', event);
