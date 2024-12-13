@@ -6,7 +6,7 @@ gh run download --repo Riya-lepton/auto-deploy-server -n build-artifact --dir /h
 echo "Artifact download complete"
 
 
-
+VGFDXC
 
 
 # hi this is deploy.sh
