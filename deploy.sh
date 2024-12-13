@@ -8,8 +8,7 @@ echo "Artifact download complete"
 
 VGFDXC
 
-
-# hi this is deploy.sh
+C 
 njfdf
 fnkmjhbg
 ytghg ...........
