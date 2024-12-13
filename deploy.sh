@@ -9,12 +9,3 @@ echo "Artifact download complete"
 VGFDXCvfd
 
 C 
-njfdf
-fnkmjhbg
-ytghg ...........
-huvfFDV
-fre cx
-gnjwd
-jhfr
-r
-zwoi
