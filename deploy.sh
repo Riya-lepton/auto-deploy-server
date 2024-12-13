@@ -9,4 +9,4 @@ echo "Artifact download complete"
 VGFDXCvfd
 
 C ..
-w
+wdede
