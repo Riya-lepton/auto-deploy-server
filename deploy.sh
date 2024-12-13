@@ -10,6 +10,6 @@ echo "Artifact download complete"
 
 
 # hi this is deploy.sh
-njf
+njfd
 fnk
 ytghg ...........
