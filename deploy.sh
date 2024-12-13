@@ -11,6 +11,6 @@ echo "Artifact download complete"
 
 # hi this is deploy.sh
 njfd
-fnk
+fnkmj
 ytghg ...........
 huja
